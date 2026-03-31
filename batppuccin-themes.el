@@ -470,10 +470,39 @@ The light flavor.")
          `(dired-ignored ((,class (:foreground ,bat-overlay2))))
          `(dired-mark ((,class (:foreground ,bat-peach :weight bold))))
          `(dired-marked ((,class (:foreground ,bat-mauve :weight bold))))
-         `(dired-perm-write ((,class (:foreground ,bat-subtext1))))
+         `(dired-perm-write ((,class (:foreground ,bat-red))))
          `(dired-symlink ((,class (:foreground ,bat-sky))))
          `(dired-warning ((,class (:foreground ,bat-yellow :weight bold))))
          `(dired-broken-symlink ((,class (:foreground ,bat-red :weight bold))))
+
+;;;;; diredfl
+         `(diredfl-file-name ((,class (:inherit dired-file-name))))
+         `(diredfl-compressed-file-name ((,class (:inherit dired-file-name))))
+         `(diredfl-compressed-file-suffix ((,class (:foreground ,bat-green))))
+         `(diredfl-date-time ((,class (:foreground ,bat-sky))))
+         `(diredfl-deletion-file-name ((,class (:inherit dired-flagged))))
+         `(diredfl-deletion ((,class (:inherit dired-flagged))))
+         `(diredfl-dir-heading ((,class (:inherit dired-header))))
+         `(diredfl-dir-name ((,class (:inherit dired-directory))))
+         `(diredfl-dir-priv ((,class (:inherit dired-directory))))
+         `(diredfl-executable-tag ((,class (:foreground ,bat-red))))
+         `(diredfl-file-suffix ((,class (:inherit dired-file-name))))
+         `(diredfl-flag-mark-line ((,class (:inherit dired-marked))))
+         `(diredfl-flag-mark ((,class (:inherit dired-mark))))
+         `(diredfl-ignored-file-name ((,class (:foreground ,bat-text))))
+         `(diredfl-mode-line-flagged ((,class (:inherit dired-flagged))))
+         `(diredfl-mode-line-marked ((,class (:inherit dired-marked))))
+         `(diredfl-no-priv ((,class (:foreground ,bat-surface2))))
+         `(diredfl-number ((,class (:foreground ,bat-teal))))
+         `(diredfl-other-priv ((,class (:foreground ,bat-overlay1))))
+         `(diredfl-rare-priv ((,class (:foreground ,bat-peach))))
+         `(diredfl-read-priv ((,class (:foreground ,bat-yellow))))
+         `(diredfl-write-priv ((,class (:inherit dired-perm-write))))
+         `(diredfl-exec-priv ((,class (:foreground ,bat-green))))
+         `(diredfl-symlink ((,class (:inherit dired-symlink))))
+         `(diredfl-link-priv ((,class (:inherit dired-symlink))))
+         `(diredfl-autofile-name ((,class (:foreground ,bat-surface1))))
+         `(diredfl-tagged-autofile-name ((,class (:foreground ,bat-surface1))))
 
 ;;;;; ediff
          `(ediff-current-diff-A ((,class (:background ,bat-diff-del-bg :extend t))))
@@ -1336,7 +1365,7 @@ The light flavor.")
 ;;;;; ansi-color
          `(ansi-color-names-vector
            [,bat-surface1 ,bat-red ,bat-green ,bat-yellow
-            ,bat-blue ,bat-pink ,bat-teal ,bat-subtext0])
+                          ,bat-blue ,bat-pink ,bat-teal ,bat-subtext0])
 
 ;;;;; pdf-view
          `(pdf-view-midnight-colors '(,bat-text . ,bat-base)))))))
@@ -1420,8 +1449,8 @@ With prefix argument, prompt for THEME variant."
                                 'face `(:foreground ,color)))
             (insert (propertize "  sample  "
                                 'face `(:background ,color
-                                        :foreground ,(if (< (batppuccin--relative-luminance color) 0.5)
-                                                         "#ffffff" "#000000"))))
+                                                    :foreground ,(if (< (batppuccin--relative-luminance color) 0.5)
+                                                                     "#ffffff" "#000000"))))
             (insert "\n")))
         (goto-char (point-min)))
       (special-mode))
